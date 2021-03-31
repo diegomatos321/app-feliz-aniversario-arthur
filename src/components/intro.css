@@ -1,0 +1,64 @@
+.fade-in{
+  transition: opacity 500ms linear;
+  opacity: 1 !important;
+}
+
+.fade-out{
+  transition: opacity 500ms linear;
+  opacity: 0 !important;
+}
+
+.slide-up {
+  animation: 300ms forwards linear slide-up;
+}
+
+.text, .previa {
+  opacity: 0;
+}
+
+.star-wars-intro .header {
+  text-align: center;
+}
+
+.star-wars-intro {
+  color: #ffc909;
+  font-size: 3vw;
+  position: relative;
+  text-align: justify;
+}
+
+.star-wars-intro .text {
+  margin-top: 50%;
+}
+
+.scroll {
+  animation: 60s forwards linear scroll;
+}
+
+@keyframes pulse {
+  from{
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes slide-up {
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+}
+
+@keyframes scroll {
+  from{
+    margin-top: 50%;
+  }
+  to{
+    margin-top: -7500px;
+  }
+}

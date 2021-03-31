@@ -1,5 +1,11 @@
 body {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(20, 20, 20);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +16,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.star-wars-intro {
+  width: 60%;
+  margin: 30vh auto 0 auto;
+  transition: opacity 300ms linear;
+}
+
+.star-wars-intro.active {
+  animation: 800ms infinite alternate linear pulse;
+  opacity: 1;
+}
+
+.star-wars-intro.idle {
+  animation: none;
+  opacity: 1;
+}
+
+.star-wars-intro.disabled {
+  opacity: 0;
 }
