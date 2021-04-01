@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 import "./intro.css"
 
-export default function StarWarsIntroComponent({scrollText}) {
+export default function StarWarsIntroComponent({ scrollText, setShowIntro }) {
   const [showHeader, setShowHeader] = useState(true);
   const [showPrevia, setShowPrevia] = useState(false);
   const [showText, setShowText] = useState(false);
@@ -12,8 +12,7 @@ export default function StarWarsIntroComponent({scrollText}) {
   const textRef = useRef(null);
 
   useEffect(() => {
-    console.log(scrollText)
-    if(scrollText) {
+    if (scrollText) {
       init();
     }
   }, [scrollText])
@@ -29,7 +28,7 @@ export default function StarWarsIntroComponent({scrollText}) {
   }
 
   useEffect(() => {
-    if(showHeader) {
+    if (showHeader) {
       headerRef.current.classList.add("fade-in");
       headerRef.current.classList.remove("slide-up");
     }
@@ -40,7 +39,7 @@ export default function StarWarsIntroComponent({scrollText}) {
   }, [showHeader]);
 
   useEffect(() => {
-    if(showPrevia) {
+    if (showPrevia) {
       previaRef.current.classList.add("fade-in");
       previaRef.current.classList.remove("fade-out");
     }
@@ -51,10 +50,15 @@ export default function StarWarsIntroComponent({scrollText}) {
   }, [showPrevia]);
 
   useEffect(() => {
-    if(showText) {
+    if (showText) {
       textRef.current.classList.add("fade-in");
       textRef.current.classList.add("scroll");
       textRef.current.classList.remove("fade-out");
+
+      textRef.current.addEventListener("animationend", (e) => {
+        console.log("Scoll Ended");
+        setShowIntro(false);
+      }, false);
     }
     else {
       textRef.current.classList.remove("fade-in");
@@ -66,6 +70,7 @@ export default function StarWarsIntroComponent({scrollText}) {
     <>
       <header className="header" ref={headerRef}>
         <h1>Star Wars</h1>
+        <p>Clique parar continuar</p>
       </header>
 
       <div className="previa" ref={previaRef}>
@@ -74,7 +79,10 @@ export default function StarWarsIntroComponent({scrollText}) {
 
       <div className="text" ref={textRef}>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum recusandae molestias minus at praesentium iure in reiciendis magni reprehenderit et. Quia obcaecati voluptate praesentium, beatae in ut debitis itaque voluptatibus officia dolorem eum a modi? Perferendis deserunt possimus pariatur excepturi magni? Nisi aperiam quidem possimus omnis eum odit in ducimus! Aperiam ipsum consectetur temporibus iste. Corporis veniam, facilis ipsum deserunt enim voluptatem, asperiores a, officiis natus quis amet. Ducimus tempore accusamus modi laudantium vero ratione adipisci quibusdam corrupti, iure, voluptas quod sit omnis sunt maiores ipsam, sequi quisquam! Voluptatem eligendi ipsa possimus at mollitia laborum, ea quibusdam minima temporibus quasi!
+          Há 20 anos terrestres atrás, nascia uma criança especial que futuramente se tornaria fã de anime e quadrinhos.
+        </p>
+        <p>
+          Com muitos dons artísticos e criatividade, faria muita merda durante sua infancia / adolescencia, mas ao se tornar "homenzinho" se alistaria para o exército, o quê colocaria rumo em sua vida.
         </p>
       </div>
     </>

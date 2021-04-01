@@ -12,27 +12,45 @@
   animation: 300ms forwards linear slide-up;
 }
 
-.text, .previa {
+.header, .text, .previa {
   opacity: 0;
+  position: absolute;
+}
+.star-wars-intro .previa {
+  color: rgb(74, 166, 202);
+  text-shadow: 2px 2px 20px blue;
 }
 
+
 .star-wars-intro .header {
-  text-align: center;
+  font-size: 4rem;
+  line-height: normal;
+  text-align: left;
+}
+
+.star-wars-intro .header p {
+  font-size: 1rem;
+  font-style: italic;
+  word-spacing: normal;
 }
 
 .star-wars-intro {
   color: #ffc909;
-  font-size: 3vw;
+  font-size: 2rem;
   position: relative;
+  text-transform: uppercase;
   text-align: justify;
-}
-
-.star-wars-intro .text {
-  margin-top: 50%;
+  perspective: 450px;
 }
 
 .scroll {
-  animation: 60s forwards linear scroll;
+  animation: scroll 30s linear  forwards;
+}
+
+@media only screen and (max-width: 600px) {
+  .star-wars-intro .header {
+    font-size: 2.2rem;
+  }
 }
 
 @keyframes pulse {
@@ -56,9 +74,9 @@
 
 @keyframes scroll {
   from{
-    margin-top: 50%;
+    transform: translateZ(500px) rotateX(80deg); 
   }
   to{
-    margin-top: -7500px;
+    transform: translateZ(-600px) rotateX(81deg);
   }
 }
