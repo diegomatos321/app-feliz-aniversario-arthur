@@ -1,6 +1,7 @@
 {
   "name": "app-feliz-aniversario-arthur",
   "version": "0.1.0",
+  "homepage": "https://devdiegomatos.com.br/projeto-star-wars-jogo/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",

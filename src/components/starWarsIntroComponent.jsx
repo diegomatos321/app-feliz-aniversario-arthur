@@ -82,7 +82,7 @@ export default function StarWarsIntroComponent({ scrollText, setShowIntro }) {
           Há 20 anos terrestres atrás, nascia uma criança especial que futuramente se tornaria fã de anime e quadrinhos.
         </p>
         <p>
-          Com muitos dons artísticos e criatividade, faria muita merda durante sua infancia / adolescencia, mas ao se tornar "homenzinho" se alistaria para o exército, o quê colocaria rumo em sua vida.
+          Com muitos dons artísticos e criatividade, faria muita merda durante sua infância / adolescência, mas ao se tornar "homenzinho" se alistaria para o exército, o quê colocaria rumo em sua vida.
         </p>
       </div>
     </>

@@ -22,10 +22,11 @@ export default function App() {
   const darthVaderMessageComponentRef = useRef(null);
 
   const [ starWarsThemeAudio, setStarWarsThemePlaying ] = useAudio({ volume: 0.1, src: themeURL});
-  const [ darthVaderThemeAudio, setDarthVaderThemePlaying ] = useAudio({ loop: true, volume: 0.3, src: darthVaderTheme});
+  const [ darthVaderThemeAudio, setDarthVaderThemePlaying ] = useAudio({ loop: true, volume: 0.2, src: darthVaderTheme});
   const [ darthVaderMessageAudio, setDarthVaderMessagePlaying ] = useAudio({ src: darthVaderMessage});
   
   useEffect(() => {
+    window.alert("É necessário que o volume seja aumentado. Juro que não irei sacanear...")
     document.addEventListener("click", handleClick);
 
     return () => {
