@@ -21,9 +21,9 @@ export default function App() {
   const introComponentRef = useRef(null);
   const darthVaderMessageComponentRef = useRef(null);
 
-  const [ starWarsThemeAudio, setStarWarsThemePlaying ] = useAudio({ volume: 0.1, src: themeURL});
-  const [ darthVaderThemeAudio, setDarthVaderThemePlaying ] = useAudio({ loop: true, volume: 0.2, src: darthVaderTheme});
-  const [ darthVaderMessageAudio, setDarthVaderMessagePlaying ] = useAudio({ src: darthVaderMessage});
+  const [ starWarsThemeAudio, setStarWarsThemePlaying ] = useAudio({ volume: 0.1, preload: "auto", src: themeURL});
+  const [ darthVaderThemeAudio, setDarthVaderThemePlaying ] = useAudio({ loop: true, preload: "auto", volume: 0.2, src: darthVaderTheme});
+  const [ darthVaderMessageAudio, setDarthVaderMessagePlaying ] = useAudio({ preload: "auto", src: darthVaderMessage});
   
   useEffect(() => {
     window.alert("É necessário que o volume seja aumentado. Juro que não irei sacanear...")
@@ -56,7 +56,10 @@ export default function App() {
       setDarthVaderThemePlaying(true);
 
       window.setTimeout(() => {
-        darthVaderThemeAudio.volume = 0.05;
+        while(darthVaderThemeAudio.volume > 0.05) {
+          darthVaderThemeAudio.volume -= 0.05;
+        }
+        
         setDarthVaderMessagePlaying(true);
       }, awaitVaderTheme);
     }
